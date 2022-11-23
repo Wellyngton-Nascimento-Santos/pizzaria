@@ -1,9 +1,40 @@
+/* Reset CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: gray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 header {
-    border: 3px dotted red;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 80px;
+}
+
+header input {
+    font-size: 1.5rem;
+    border-style: none;
+    padding: 10px;
+    width: 600px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header span {
+    color: #fff;
+    background-color: #ff5100;
+    border-radius: 50%;
+    padding: 3px 9px;
 }
 
 button {
@@ -15,6 +46,7 @@ button {
 
 .btBuscar {
     width: 300px;
+    font-size: 1.5rem;
 }
 
 #logo {
