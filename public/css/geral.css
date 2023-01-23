@@ -101,9 +101,31 @@ input[type="file"] {
 form input[type="text"],
 form input[type="password"],
 form input[type="email"],
-form input[type="number"]{
+form input[type="number"]
+{
     padding: 5px;
     font-size: 1.2rem;
+}
+
+form input:invalid {
+    border: 3px solid crimson;
+}
+
+form input:valid {
+    border: 3px solid greenyellow;
+}
+
+form input:invalid + .error-msg{
+    display: inline; /*Ou Display:block(aparece a msg embaixo*/
+}
+form .error-msg{
+    color: crimson;
+    font-size: 14px;
+    display: none;
+}
+
+fomr input:required{
+    content: "LALALALA";
 }
 
 @media screen and (max-width: 550px) {
