@@ -3,11 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;   
 }
 
 html {
     height: 100%;
+    font-size: 16px;
 }
 
 body {
@@ -107,25 +108,22 @@ form input[type="number"]
     font-size: 1.2rem;
 }
 
-form input:invalid {
+form input:invalid{
     border: 3px solid crimson;
 }
 
-form input:valid {
+form input:valid{
     border: 3px solid greenyellow;
 }
 
 form input:invalid + .error-msg{
-    display: inline; /*Ou Display:block(aparece a msg embaixo*/
+    display: block;
 }
+
 form .error-msg{
     color: crimson;
     font-size: 14px;
     display: none;
-}
-
-fomr input:required{
-    content: "LALALALA";
 }
 
 @media screen and (max-width: 550px) {
