@@ -87,7 +87,7 @@ const PaginasController = {
 
         // mandar a pizza ser exibida...
         // return res.send(pizza);
-        return res.sendFile(path.resolve("views/pizza.html"));
+        return res.render("pizza.ejs", {pizza});
     }
 
 }
