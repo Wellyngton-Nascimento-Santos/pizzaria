@@ -1,13 +1,14 @@
 const path = require('path');
+const idu = 4;
 
 const PaginasController = {
 
-    showIndex: (req, res)=>{
+    showIndex: (req, res) => {
         // return res.sendFile(path.resolve("views/index.html"));
         return res.render('index.ejs');
     },
 
-    showCarrinho: (req, res)=>{
+    showCarrinho: (req, res) => {
         let carrinho = [
             {
                 "id": 1,
@@ -49,15 +50,29 @@ const PaginasController = {
                 "score": 27
             }
         ]
-        let nomeDoUsuario = "Ligia Pretel";
-        return res.render('carrinho.ejs', {carrinho, nomeDoUsuario});
+        let nomeDoUsuario = "Wellyngton Nascimento";
+        return res.render('carrinho.ejs', { carrinho, nomeDoUsuario });
     },
 
-    showPerfil: (req, res)=>{
-        return res.sendFile(path.resolve("views/perfil.html"));
+    showPerfil: (req, res) => {
+
+        // importar o array de usuarios
+        const usuarios = require('../databases/usuarios.json');
+
+        // encontrar o usuario com o id dado
+        const usuario = usuarios.find(u => u.id == idu);
+
+        if (usuario !== undefined) {
+            // caso encontre, passar usuario para view perfil.ejs
+            return res.render('perfil.ejs', { usuario });
+        } else {
+            // caso não encontre, mando uma view erro-404.ejs
+            return res.render('erro-404.ejs');
+        }
+
     },
 
-    showCadastro: (req, res)=>{
+    showCadastro: (req, res) => {
         return res.sendFile(path.resolve("views/cadastro.html"));
     },
 
@@ -68,7 +83,7 @@ const PaginasController = {
         const pizzas = require('../databases/pizzas.json');
 
         // localizar a pizza de id procurado
-        const pizza = pizzas.find( p => p.id == id);
+        const pizza = pizzas.find(p => p.id == id);
 
         // mandar a pizza ser exibida...
         // return res.send(pizza);
